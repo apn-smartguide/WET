@@ -5,7 +5,7 @@
 <% 
 	Context.Items["optionIndex"] = ""; 
 %>
-<% setThemeLocations(new string[]{"default_8.5","/..",sg5.Smartlet.getTheme()}); %>
+<% setThemeLocations(new string[]{"default_8.5",sg5.Smartlet.getTheme(),"/.."}); %>
 <!DOCTYPE html>
 <html class="no-js" lang="<%= getCurrentLocale() %>" dir="ltr">
 <% Server.Execute(resolvePath("/layout/head.aspx")); %>
