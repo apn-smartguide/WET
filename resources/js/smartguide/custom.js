@@ -29,6 +29,7 @@ var customJS = {
 		dataTablesController.init(sgRef);
 		formatterController.init(sgRef);
 		crudController.init(sgRef);
+		keepAliveController.init(sgRef, 15, 20, 5);
 	}
 	, bindEvents: function (sgRef, context) {
 		// can reference objects and methods in smartguide.js

@@ -32,6 +32,7 @@
 <script src='<%= cacheBreak("/resources/js/bootstrap-datetimepicker.min.js") %>'></script>
 <script src='<%= cacheBreak("/resources/js/holder.min.js") %>'></script>
 <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
+<script src='<%= cacheBreak("/resources/js/bootstrap-session-timeout.js") %>'></script>
 
 <!-- SmartGuide JS -->
 <script src='<%= cacheBreak("/resources/js/smartguide/smartguide-wet.js") %>'></script>
@@ -40,6 +41,7 @@
 <script src='<%= cacheBreak("/resources/js/smartguide/smartguide.dataTables.wb.js") %>'></script>
 <script src='<%= cacheBreak("/resources/js/smartguide/smartguide.formatters.js") %>'></script>
 <script src='<%= cacheBreak("/resources/js/smartguide/smartguide.crud.js") %>'></script>
+<script src='<%= cacheBreak("/resources/js/smartguide/smartguide.keepalive.js") %>'></script>
 <script src='<%= cacheBreak("/resources/js/smartguide/custom.js") %>'></script>
 <script>
 	var dataTableTranslations = {

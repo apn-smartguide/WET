@@ -10,6 +10,7 @@
 <html class="no-js" lang="<%= getCurrentLocale() %>" dir="ltr">
 <% Server.Execute(resolvePath("/layout/head.aspx")); %>
 <body vocab="http://schema.org/" resource="#wb-webpage" typeof="WebPage" class='<apn:control runat="server" type="step"><apn:cssclass runat="server"/></apn:control>' style='<apn:control runat="server" type="step"><apn:cssstyle runat="server"/></apn:control>' >
+	<div id="loader"><div id="spinner"></div></div>
 	<main role="main" property="mainContentOfPage" resource="#wb-main" class="container">
 		<%-- SMARTGUIDE MAIN FORM --%>
 		<form id='smartguide_<apn:control runat="server" type="smartlet-code"><apn:value runat="server"/></apn:control>' action="do.aspx" method="post" enctype="multipart/form-data">
@@ -19,7 +20,6 @@
 			<span id="sglib"><% Server.Execute(resolvePath("/controls/sglib.aspx")); %></span>
 			<%-- required to support actions on fields, must be placed within the SmartGuide form --%>
 			<span id="sgControls"><%-- do not change the div id as it is referenced in smartguide.js --%>
-				<div id="loader"></div>
 				<% Server.Execute(resolvePath("/layout/header.aspx")); %>
 				<% Server.Execute(resolvePath("/layout/main.aspx")); %>
 				<div class="row">
@@ -52,5 +52,9 @@
 			</span>
 		</form>
 	</main>
+	<script>
+		<%=Context.Items["javascript"]%>
+		$("#loader").fadeOut("slow");
+	  </script>
 </body>
 </html>
