@@ -1,8 +1,4 @@
-<%@ Page Language="C#" %>
-<%@ Import Namespace="com.alphinat.sg5" %>
-<%@ Register Tagprefix="apn" Namespace="Alphinat.SmartGuideServer.Controls" Assembly="apnsgscontrols" %>
-<apn:api5 id="sg5" runat="server" />
-<!-- #include file="../helpers.aspx" -->
+<%@ Page Language="C#" autoeventwireup="true" CodeFile="../../default_8.5/helpers.cs" Inherits="SGPage" Trace="false"%>
 <meta charset="utf-8">
 <title><apn:control runat="server" type="smartlet-name"><apn:value runat="server"/></apn:control> &gt; <apn:control runat="server" type="step"><apn:label runat="server"/></apn:control></title>
 <meta content="width=device-width,initial-scale=1" name="viewport">

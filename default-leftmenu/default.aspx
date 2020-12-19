@@ -1,13 +1,13 @@
-<%@ Page Language="C#" autoeventwireup="true" CodeFile="../default/default.aspx.cs" Inherits="_Default" Trace="false"%>
-<%@ Register Tagprefix="apn" Namespace="Alphinat.SmartGuideServer.Controls" Assembly="apnsgscontrols" %>
-<apn:api5 id="sg5" runat="server" />
-<!-- #include file="../helpers.aspx" -->
-<% 
-	Context.Items["optionIndex"] = ""; 
-%>
-<% setThemeLocations(new string[]{"default_8.5",sg5.Smartlet.getTheme(),"/.."}); %>
 <!DOCTYPE html>
-<html class="no-js" lang="<%= getCurrentLocale() %>" dir="ltr">
+<apn:api5 id="sg5" runat="server" />
+<%@ Page Language="C#" autoeventwireup="true" CodeFile="../default/default.aspx.cs" Inherits="Default" Trace="false"%>
+<%@ Assembly src="../../default_8.5/helpers.cs" %>
+<%
+	sg = sg5;
+	Context.Items["optionIndex"] = ""; 
+	ThemesLocations = new string[]{"default_8.5",Theme,"/.."}; 
+%>
+<html class="no-js" lang="<%= CurrentLocale %>" dir="ltr">
 <% Server.Execute(resolvePath("/layout/head.aspx")); %>
 <body vocab="http://schema.org/" resource="#wb-webpage" typeof="WebPage" class='<apn:control runat="server" type="step"><apn:cssclass runat="server"/></apn:control>' style='<apn:control runat="server" type="step"><apn:cssstyle runat="server"/></apn:control>' >
 	<div id="loader"><div id="spinner"></div></div>
@@ -27,7 +27,7 @@
 						<% Server.Execute(resolvePath("/layout/secondary-navigation.aspx")); %>
 					</div>
 					<div class="col-md-9">
-						<% if (showWizard()) { %>
+						<% if (ShowWizard) { %>
 							<% Server.Execute(resolvePath("/controls/wizard/sections.aspx")); %>
 						<% } %>
 						<div class="row page-title">
@@ -40,7 +40,7 @@
 						<% Server.Execute(resolvePath("/controls/validation.aspx")); %>
 						<%-- MAIN LOOP OVER PAGE CONTROLS --%>
 						<% Server.Execute(resolvePath("/controls/controls.aspx")); %>
-						<% if (showWizard()) { %>
+						<% if (ShowWizard) { %>
 						<%-- WIZARD PREV/NEXT BUTTONS --%>
 						<div class="navigation">
 							<% Server.Execute(resolvePath("/controls/wizard/bottom-controls.aspx")); %>
