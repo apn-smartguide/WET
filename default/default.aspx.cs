@@ -11,7 +11,7 @@ using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
 
 using com.alphinat.sg5;
-public partial class Default : SGPage 
+public partial class Default : SG.Page 
 {
     public void InitSG() {
         HttpBrowserCapabilities browser = Request.Browser;

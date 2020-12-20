@@ -1,12 +1,11 @@
-<!DOCTYPE html>
-<apn:api5 id="sg5" runat="server"/>
-<%@ Page Language="C#" autoeventwireup="true" CodeFile="default.aspx.cs" Inherits="Default" Trace="false"%>
+<%@ Page Language="C#" autoeventwireup="true" CodeFile="default.aspx.cs" Inherits="_Default" Trace="false"%>
 <%@ Assembly src="../../default_8.5/helpers.cs" %>
+<apn:api5 id="sg5" runat="server"/>
 <% 
 	sg = sg5;
-	Context.Items["optionIndex"] = ""; 
 	ThemesLocations = new string[]{"default_8.5",Theme,"/.."}; 
 %>
+<!DOCTYPE html>
 <html class="no-js" lang="<%= CurrentLocale %>" dir="ltr">
 	<% Server.Execute(resolvePath("/layout/head.aspx")); %>
 	<body vocab="http://schema.org/" resource="#wb-webpage" typeof="WebPage" class='<apn:control runat="server" type="step"><apn:cssclass runat="server"/></apn:control>' style='<apn:control runat="server" type="step"><apn:cssstyle runat="server"/></apn:control>' >

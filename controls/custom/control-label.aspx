@@ -1,4 +1,4 @@
-<%@ Page Language="C#" autoeventwireup="true" CodeFile="../../../default_8.5/helpers.cs" Inherits="SGPage" Trace="false"%>
+<%@ Page Language="C#" autoeventwireup="true" CodeFile="../../../default_8.5/helpers.cs" Inherits="SG.Page" Trace="false"%>
 <apn:control runat="server" id="control">
 <apn:ifnotcontrolattribute attr="tooltip" runat="server">
 	<apn:ifnotcontrolvalid runat="server">
