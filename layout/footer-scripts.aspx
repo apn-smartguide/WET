@@ -1,4 +1,4 @@
-<%@ Page Language="C#" autoeventwireup="true" CodeFile="../../default_8.5/helpers.cs" Inherits="SG.Page" Trace="false"%>
+<%@ Page Language="C#" autoeventwireup="true" CodeFile="../../default_8.5/helpers.cs" Inherits="SGPage" Trace="false"%>
 <!-- WET-BOEW -->
 <script src='<%= cacheBreak("/wet-boew/js/wet-boew.min.js") %>'></script>
 <!-- Boostrap -->
