@@ -6,6 +6,7 @@
 	Context.Items["optionIndex"] = ""; 
 	ThemesLocations = new string[]{"default_8.5",Theme,"/.."}; 
 %>
+<% Context.Items["pdf"] = false; %>
 <!DOCTYPE html>
 <html class="no-js" lang="<%= CurrentLocale %>" dir="ltr">
 <% Server.Execute(resolvePath("/layout/head.aspx")); %>
