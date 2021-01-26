@@ -9,7 +9,7 @@
 <% Context.Items["pdf"] = false; %>
 <!DOCTYPE html>
 <html class="no-js" lang="<%= CurrentLocale %>" dir="ltr">
-<% Server.Execute(resolvePath("/layout/head.aspx")); %>
+<% ExecutePath("/layout/head.aspx"); %>
 <body vocab="http://schema.org/" resource="#wb-webpage" typeof="WebPage" class='<apn:control runat="server" type="step"><apn:cssclass runat="server"/></apn:control>' style='<apn:control runat="server" type="step"><apn:cssstyle runat="server"/></apn:control>' >
 	<div id="loader"><div id="spinner"></div></div>
 	<main role="main" property="mainContentOfPage" resource="#wb-main" class="container">
@@ -18,18 +18,18 @@
 			<%-- do not change the form id as it is referenced in smartguide.js --%>
 			<input type="hidden" name="com.alphinat.sgs.anticsrftoken" value="<%=Session["com.alphinat.sgs.anticsrftoken"] %>" />
 			<%-- SmartGuide library definitions --%>
-			<span id="sglib"><% Server.Execute(resolvePath("/controls/sglib.aspx")); %></span>
+			<span id="sglib"><% ExecutePath("/controls/sglib.aspx"); %></span>
 			<%-- required to support actions on fields, must be placed within the SmartGuide form --%>
 			<span id="sgControls"><%-- do not change the div id as it is referenced in smartguide.js --%>
-				<% Server.Execute(resolvePath("/layout/header.aspx")); %>
-				<% Server.Execute(resolvePath("/layout/main.aspx")); %>
+				<% ExecutePath("/layout/header.aspx"); %>
+				<% ExecutePath("/layout/main.aspx"); %>
 				<div class="row">
 					<div id="leftcol" class="col-md-3">
-						<% Server.Execute(resolvePath("/layout/secondary-navigation.aspx")); %>
+						<% ExecutePath("/layout/secondary-navigation.aspx"); %>
 					</div>
 					<div class="col-md-9">
 						<% if (ShowWizard) { %>
-							<% Server.Execute(resolvePath("/controls/wizard/sections.aspx")); %>
+							<% ExecutePath("/controls/wizard/sections.aspx"); %>
 						<% } %>
 						<div class="row page-title">
 							<div class="col-md-12">
@@ -38,18 +38,18 @@
 								</h2>
 							</div>
 						</div>
-						<% Server.Execute(resolvePath("/controls/validation.aspx")); %>
+						<% ExecutePath("/controls/validation.aspx"); %>
 						<%-- MAIN LOOP OVER PAGE CONTROLS --%>
-						<% Server.Execute(resolvePath("/controls/controls.aspx")); %>
+						<% ExecutePath("/controls/controls.aspx"); %>
 						<% if (ShowWizard) { %>
 						<%-- WIZARD PREV/NEXT BUTTONS --%>
 						<div class="navigation">
-							<% Server.Execute(resolvePath("/controls/wizard/bottom-controls.aspx")); %>
+							<% ExecutePath("/controls/wizard/bottom-controls.aspx"); %>
 						</div>
 						<% } %>
 					</div>
 				</div>
-				<% Server.Execute(resolvePath("/layout/footer.aspx")); %>
+				<% ExecutePath("/layout/footer.aspx"); %>
 			</span>
 		</form>
 	</main>
