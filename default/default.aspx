@@ -1,4 +1,4 @@
-<%@ Page Language="C#" autoeventwireup="true" CodeFile="../../default_8.5/default.aspx.cs" Inherits="_Default" Trace="false"%>
+<%@ Page Language="C#" autoeventwireup="true" CodeFile="../../default_8.5/default/default.aspx.cs" Inherits="_Default" Trace="false"%>
 <%@ Assembly src="../../default_8.5/SGWebCore.cs" %>
 <apn:api5 id="sg5" runat="server"/>
 <% 
@@ -16,26 +16,41 @@
 			<%-- SmartGuide library definitions --%>
 			<span id="sglib"><% ExecutePath("/controls/sglib.aspx"); %></span><%-- required to support actions on fields, must be placed within the SmartGuide form --%>
 			<span id="sgControls"><%-- do not change the div id as it is referenced in smartguide.js --%>
+			<div class="container" role="main">
 			<% ExecutePath("/layout/header.aspx"); %>
-			<main role="main" property="mainContentOfPage" resource="#wb-main" class="container">
-				<div class="row page-title">
-					<div class="col-md-12">
-						<h2>
-							<apn:control runat="server" type="step"><apn:label runat="server" /></apn:control>
-						</h2>
-					</div>
+			<% SessionField SecondaryNavigation = (SessionField)FindFieldByName("secondary-navigation"); %>
+				<% if (SecondaryNavigation != null && !SecondaryNavigation.getLabel().Equals("")) { %>
+				<div id="leftcol" class="col-md-3 hidden-sm hidden-xs" typeof="SiteNavigationElement" id="wb-sec" role="navigation">	
+				<% 
+					if (SecondaryNavigation != null && !SecondaryNavigation.getLabel().Equals("")) { 
+						ExecutePath(SecondaryNavigation.getLabel());
+					} else {		
+						ExecutePath("/layout/secondary-navigation.aspx");
+					} 
+				%>
 				</div>
-				<% ExecutePath("/controls/validation.aspx"); %>
-				<% ExecutePath("/layout/main.aspx"); %>
-				<%-- MAIN LOOP OVER PAGE CONTROLS --%>		
-				<% ExecutePath("/controls/controls.aspx"); %>
-				<% if (ShowWizard) { %>
-				<%-- WIZARD PREV/NEXT BUTTONS --%>
-				<div class="navigation">
-					<% ExecutePath("/controls/wizard/bottom-controls.aspx"); %>
-				</div>
+				<div id="main" class="col-md-9 col-sm-12 col-xs-12">
+				<% } else { %>
+				<div class="col-md-12">
 				<% } %>
-			</main>
+					<div class="row page-title">
+						<div class="col-md-12">
+							<h2>
+								<apn:control runat="server" type="step"><apn:label runat="server" /></apn:control>
+							</h2>
+						</div>
+					</div>
+					<% ExecutePath("/controls/validation.aspx"); %>
+					<% ExecutePath("/layout/main.aspx"); %>
+					<%-- MAIN LOOP OVER PAGE CONTROLS --%>		
+					<% ExecutePath("/controls/controls.aspx"); %>
+					<% if (ShowWizard) { %>
+					<%-- WIZARD PREV/NEXT BUTTONS --%>
+					<div class="navigation">
+						<% ExecutePath("/controls/wizard/bottom-controls.aspx"); %>
+					</div>
+				<% } %>
+			</div>
 			<% ExecutePath("/layout/footer.aspx"); %>
 			</span>
 		</form>
