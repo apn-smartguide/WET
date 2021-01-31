@@ -2,18 +2,18 @@
 <apn:control runat="server" id="control">
 <apn:ifnotcontrolattribute attr="tooltip" runat="server">
 	<apn:ifnotcontrolvalid runat="server">
-		<span class="error"><span class="field-name"><apn:label runat="server" /></span></span>
+		<span class="error"><span class="field-name"><%=GetAttribute(control.Current, "label")%></span></span>
 	</apn:ifnotcontrolvalid>
 	<apn:ifcontrolvalid runat="server">
-		<span class="field-name"><apn:label runat="server" /></span>
+		<span class="field-name"><%=GetAttribute(control.Current, "label")%></span>
 	</apn:ifcontrolvalid>
 </apn:ifnotcontrolattribute>
 <apn:ifcontrolattribute attr="tooltip" runat="server">
 	<apn:ifnotcontrolvalid runat="server">
-		<span class="error"><span class="field-name" data-toggle='tooltip' title='<apn:controlattribute runat="server" tohtml="true" attr="tooltip"/>'><apn:label runat="server" /></span></span>
+		<span class="error"><span class="field-name" data-toggle='tooltip' data-html='true' title='<%=GetAttribute(control, "tooltip")%>'><%=GetAttribute(control.Current, "label")%></span></span>
 	</apn:ifnotcontrolvalid>
 	<apn:ifcontrolvalid runat="server">
-		<span class="field-name" data-toggle='tooltip' title='<apn:controlattribute runat="server" tohtml="true" attr="tooltip"/>'><apn:label runat="server" /></span></span>
+		<span class="field-name" data-toggle='tooltip' data-html='true' title='<%=GetAttribute(control, "tooltip")%>'><%=GetAttribute(control.Current, "label")%></span></span>
 	</apn:ifcontrolvalid>
 </apn:ifcontrolattribute>
 <% ExecutePath("/controls/help.aspx"); %>
