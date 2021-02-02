@@ -74,8 +74,9 @@ var dataTablesController = {
 			}
 		});
 
+		//TODO: The following is broken, enabling this will reset the datatable on any click of checkboxes
 		// Handle click on checkbox to set state of "Select all" control
-		$('input[type="checkbox"]', '.wb-tables tbody').off('change').on('change', function(){
+		$('input[type="checkbox2"]', '.wb-tables tbody').off('change').on('change', function(){
 			var dataTable = $(this).closest('table').DataTable();
 			
 			// If checkbox is not checked
@@ -112,7 +113,7 @@ var dataTablesController = {
 		});
 		
 		// support for selection radios for server side repeats
-		$('[type=radio][name^=d_s]').off('click').on('click', function() { 
+		$('[type=radio2][name^=d_s]').off('click').on('click', function() { 
 			var dataTable = $(this).closest('table').DataTable();
 
 			// unselect all, then just re-selects our instance (e.g. d_s1590340615680[5])
