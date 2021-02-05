@@ -29,12 +29,12 @@
 					} 
 				%>
 				</div>
-				<div id="main" class="col-md-9 col-sm-12 col-xs-12">
+				<div id="main" class="col-xs-12 col-md-9">
 				<% } else { %>
-				<div class="col-md-12">
+				<div class="col-xs-12">
 				<% } %>
 					<div class="row page-title">
-						<div class="col-md-12">
+						<div class="col-xs-12">
 							<h2>
 								<apn:control runat="server" type="step"><apn:label runat="server" /></apn:control>
 							</h2>
