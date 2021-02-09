@@ -4,8 +4,8 @@
 <% 
 	sg = sg5;
 	ThemesLocations = new string[]{"default_8.5",Theme,"/.."}; 
+	IsPdf = false; 
 %>
-<% Context.Items["pdf"] = false; %>
 <!DOCTYPE html>
 <html class="no-js" lang="<%= CurrentLocale %>" dir="ltr">
 	<% ExecutePath("/layout/head.aspx"); %>
