@@ -1,11 +1,7 @@
 <%@ Page Language="C#" autoeventwireup="true" CodeFile="../../default_8.5/default/default.aspx.cs" Inherits="_Default" Trace="false"%>
 <%@ Assembly src="../../default_8.5/SGWebCore.cs" %>
 <apn:api5 id="sg5" runat="server"/>
-<% 
-	sg = sg5;
-	ThemesLocations = new string[]{"default_8.5",Theme,"/.."}; 
-	IsPdf = false; 
-%>
+<%  ThemesLocations = new string[]{"default_8.5",Theme,"/.."}; %>
 <!DOCTYPE html>
 <html class="no-js" lang="<%= CurrentLocale %>" dir="ltr">
 	<% ExecutePath("/layout/head.aspx"); %>
