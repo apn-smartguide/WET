@@ -1,7 +1,7 @@
 
 //TODO: refactor as not dependent of WET version
 
-var dataTablesController = { 
+var WETdataTablesController = { 
 	init: function(sgRef) { 
 		Modernizr.load( {
 			load: [
@@ -24,6 +24,7 @@ var dataTablesController = {
 	},
 	
 	bindEvents : function(sgRef, context) {
+
 		// WET reinit controls
 		$( ".wb-tables", context).trigger("wb-init.wb-tables");
 
