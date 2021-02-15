@@ -38,11 +38,11 @@ var customJS = {
 			offset: navHeight
 		});
 		
-		tinymceController.init(sgRef, currentLocale);
-		dataTablesController.init(sgRef);
+		tinymceController.init(sgRef, currentLocale)
 		WETdataTablesController.init(sgRef);
-		formatterController.init(sgRef);
+		dataTablesController.init(sgRef)
 		crudController.init(sgRef);
+		formatterController.init(sgRef);
 		keepAliveController.init(sgRef, 15, 20, 5);
 	}
 	, bindEvents: function (sgRef, context) {
@@ -55,10 +55,10 @@ var customJS = {
 
 		for(i=0; i<context.length; i++) {
 			tinymceController.bindEvents(sgRef, "TEXTAREA.tinymce", context[i]);
-			dataTablesController.bindEvents(sgRef, context[i]);
 			WETdataTablesController.bindEvents(sgRef, context[i]);
-			formatterController.bindEvents(sgRef, context[i]);
+			dataTablesController.bindEvents(sgRef, context[i]);
 			crudController.bindEvents(sgRef, context[i]);
+			formatterController.bindEvents(sgRef, context[i]);
 		}
 
 		$('[data-toggle="tooltip"]').tooltip();
