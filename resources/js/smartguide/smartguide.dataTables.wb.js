@@ -9,7 +9,7 @@ var WETdataTablesController = {
 				basePath + "default_8.5/resources/plugins/dataTables/Responsive-2.2.5/js/dataTables.responsive" + wb.getMode() + ".js"
 			],
 			complete: function() {
-				$(".wb-tables").trigger("wb-init.wb-tables");
+				//$(".wb-tables").trigger("wb-init.wb-tables");
 			}
 		} );
 
@@ -19,17 +19,19 @@ var WETdataTablesController = {
 			// 	details: false
 			// });
 			$( ".wb-tables" ).find('thead th').css('width', 'auto');
-			sgRef.bindEvents([$(this)]);
+			//sgRef.bindEvents([$(this)]);
 		});
 	},
 	
 	bindEvents : function(sgRef, context) {
 
 		// WET reinit controls
-		$( ".wb-tables", context).trigger("wb-init.wb-tables");
+		if($(":not(.wb-tables-inited) .wb-tables", context).length > 0) {
+			$( ":not(.wb-tables-inited) .wb-tables", context).trigger("wb-init.wb-tables");
+		}
 
 		// rebind on wet datatable event
-		$(".wb-tables", context).off("wb-updated.wb-tables").on("wb-updated.wb-tables", function (event) {
+		$(".wb-tables2", context).off("wb-updated.wb-tables").on("wb-updated.wb-tables", function (event) {
 			// handle status of select all checkbox if available
 			var el = $('[name=select_all]', $(this).closest('table')).get(0);
 			if (typeof el != 'undefined') {
@@ -59,7 +61,7 @@ var WETdataTablesController = {
 			sgRef.bindEvents([$(this)]);
 		});
 
-		$('[name=select_all]', '.wb-tables thead tr th').first().off('click').on('click', function(){
+		$('[name=select_all2]', '.wb-tables thead tr th').first().off('click').on('click', function(){
 			var dataTable = $(this).closest('table').DataTable();
 			var rows = dataTable.rows({ 'page': 'current' }).nodes();
 			// Check/uncheck checkboxes for all rows in the table
