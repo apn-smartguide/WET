@@ -6,14 +6,7 @@
 	<%-- should be contained within a <div class="form-group"> --%>
 	<label class='<apn:ifcontrolrequired runat="server">required</apn:ifcontrolrequired> <%= ( "".Equals(control.Current.getLabel()) ? "emptyLegend":"") %>'>
 		<% ExecutePath("/controls/custom/control-label.aspx"); %>
-		<apn:ifnotcontrolvalid runat="server">
-			<apn:ifcontrolrequired runat="server"><strong class='has-error'><%=sg.Context.getSmartlet().getLocalizedResource("theme.text.required-suffix")%></strong></apn:ifcontrolrequired>
-			<strong id='<apn:name runat="server"/>-error' class='error'>
-				<span class="label label-danger">
-					<span class="prefix"><%=sg.Context.getSmartlet().getLocalizedResource("theme.text.error-prefix").Replace("{1}", Context.Items["errorIndex"].ToString()) %></span><%= control.Current.getAlert() %>
-				</span>
-			</strong>
-		</apn:ifnotcontrolvalid>
+		<apn:ifnotcontrolvalid runat="server"><apn:ifcontrolrequired runat="server"><strong class='has-error'><%=sg.Context.getSmartlet().getLocalizedResource("theme.text.required-suffix")%></strong></apn:ifcontrolrequired></apn:ifnotcontrolvalid>
 	</label>
 	<% } %>	
 </apn:control>
