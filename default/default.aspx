@@ -50,6 +50,7 @@
 			<% ExecutePath("/layout/footer.aspx"); %>
 			</span>
 		</form>
+		<% ExecutePath("/layout/footer-scripts.aspx"); %>
 		<script>
 			<%=Context.Items["javascript"]%>
 			$("#loader").fadeOut("slow");
