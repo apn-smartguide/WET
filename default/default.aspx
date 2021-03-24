@@ -16,11 +16,11 @@
 			<% ExecutePath("/layout/header.aspx"); %>
 			<% SessionField SecondaryNavigation = (SessionField)FindFieldByName("secondary-navigation"); %>
 				<% if (SecondaryNavigation != null && !SecondaryNavigation.getLabel().Equals("")) { %>
-				<div id="leftcol" class="col-md-3 hidden-sm hidden-xs" typeof="SiteNavigationElement" id="wb-sec" role="navigation">	
+				<div id="leftcol" class="col-md-3 hidden-sm hidden-xs" typeof="SiteNavigationElement" id="wb-sec" role="navigation">
 				<% 
-					if (SecondaryNavigation != null && !SecondaryNavigation.getLabel().Equals("")) { 
+					if (SecondaryNavigation != null && !SecondaryNavigation.getLabel().Equals("")) {
 						ExecutePath(SecondaryNavigation.getLabel());
-					} else {		
+					} else {
 						ExecutePath("/layout/secondary-navigation.aspx");
 					} 
 				%>
@@ -38,7 +38,7 @@
 					</div>
 					<% ExecutePath("/controls/validation.aspx"); %>
 					<% ExecutePath("/layout/main.aspx"); %>
-					<%-- MAIN LOOP OVER PAGE CONTROLS --%>		
+					<%-- MAIN LOOP OVER PAGE CONTROLS --%>
 					<% ExecutePath("/controls/controls.aspx"); %>
 					<% if (!HideBottomNavigation) { %>
 					<%-- WIZARD PREV/NEXT BUTTONS --%>
