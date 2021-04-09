@@ -1,14 +1,17 @@
 <%@ Page Language="C#" autoeventwireup="true" CodeFile="../../default_8.5/SGWebCore.cs" Inherits="SGWebCore" Trace="false"%>
 <!-- WET-BOEW -->
 <script src='<%= CacheBreak("/wet-boew/js/wet-boew.min.js") %>'></script>
-<!-- Boostrap -->
-<script src='<%= CacheBreak("/resources/js/bootstrap.js") %>'></script>
 <!-- JQuery -->
 <script src='<%= CacheBreak("/resources/js/ui/jquery-ui.js") %>'></script>
-<script src='<%= CacheBreak("/resources/js/jquery.form.min.js") %>'></script>
-<script src='<%= CacheBreak("/resources/js/jquery.bootpag.min.js") %>'></script>
-<script src='<%= CacheBreak("/resources/js/jquery.autocomplete.min.js") %>'></script>
-<script src='<%= CacheBreak("/resources/js/inputmask/jquery.inputmask.js") %>'></script>
+<%-- the following line is to remove the conflict between jquery-ui tooltip and bootstrap tooltip. bootstap will override and be default --%>
+<script>$.widget.bridge('uitooltip', $.ui.tooltip);</script>
+<!-- Boostrap -->
+<script src='<%= CacheBreak("/resources/js/bootstrap.js") %>'></script>
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+<script src='<%= CacheBreak("/resources/js/html5shiv.min.js") %>'></script>
+<script src='<%= CacheBreak("/resources/js/respond.min.js") %>'></script>
+<![endif]-->
 <script src='<%= CacheBreak("/resources/js/getUserMedia-polyfill.js") %>'></script>
 <!-- Additional -->
 <script src='<%= CacheBreak("/resources/js/moment/moment.min.js") %>'></script>
@@ -24,16 +27,23 @@
 <script src='<%= CacheBreak("/resources/js/holder.min.js") %>'></script>
 <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
 <script src='<%= CacheBreak("/resources/js/bootstrap-session-timeout.js") %>'></script>
+<script src='<%= CacheBreak("/resources/plugins/dataTables/DataTables-1.10.21/js/jquery.datatables.js") %>'></script>
+<script src='<%= CacheBreak("/resources/plugins/dataTables/Responsive-2.2.5/js/dataTables.responsive.js") %>'></script>
+<!-- Boostrap -->
+<script src='<%= CacheBreak("/resources/js/jquery.form.min.js") %>'></script>
+<script src='<%= CacheBreak("/resources/js/jquery.bootpag.min.js") %>'></script>
+<script src='<%= CacheBreak("/resources/js/jquery.autocomplete.min.js") %>'></script>
+<script src='<%= CacheBreak("/resources/js/inputmask/jquery.inputmask.js") %>'></script>
 <!-- SmartGuide JS -->
 <script src='<%= CacheBreak("/resources/js/smartguide/smartguide-wet.js") %>'></script>
 <script src='<%= CacheBreak("/resources/js/smartguide/smartguide.tinymce.js") %>'></script>
 <script src='<%= CacheBreak("/resources/js/smartguide/smartguide.dataTables.js") %>'></script>
 <script src='<%= CacheBreak("/resources/js/smartguide/smartguide.dataTables.wb.js") %>'></script>
-<script src='<%= CacheBreak("/resources/js/smartguide/smartguide.crud.js") %>'></script>
 <script src='<%= CacheBreak("/resources/js/smartguide/smartguide.formatters.js") %>'></script>
+<script src='<%= CacheBreak("/resources/js/smartguide/smartguide.crud.js") %>'></script>
 <script src='<%= CacheBreak("/resources/js/smartguide/smartguide.keepalive.js") %>'></script>
 <script src='<%= CacheBreak("/resources/js/smartguide/custom.js") %>'></script>
-<script>
+<script>	
 	var dataTableTranslations = {
 		'zeroRecords': '<apn:localize runat="server" key="theme.text.datatable.zeroRecords"/>',
 		'infoEmpty': '<apn:localize runat="server" key="theme.text.datatable.infoEmpty"/>',
@@ -50,5 +60,5 @@
 		'discardChanges': $("<div>").html('<apn:localize runat="server" key="theme.text.modals.discardChanges"/>').text(),
 		'deleteRow': $("<div>").html('<apn:localize runat="server" key="theme.text.modals.deleteRow"/>').text()
 	};
-	initToBrowserLocale(currentLocale);	
+	initToBrowserLocale(currentLocale);
 </script>
