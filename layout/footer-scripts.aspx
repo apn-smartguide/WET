@@ -7,12 +7,12 @@
 <script>$.widget.bridge('uitooltip', $.ui.tooltip);</script>
 <!-- Boostrap -->
 <script src='<%= CacheBreak("/resources/js/bootstrap.js") %>'></script>
+<script src='<%= CacheBreak("/resources/js/getUserMedia-polyfill.js") %>'></script>
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 9]>
 <script src='<%= CacheBreak("/resources/js/html5shiv.min.js") %>'></script>
 <script src='<%= CacheBreak("/resources/js/respond.min.js") %>'></script>
 <![endif]-->
-<script src='<%= CacheBreak("/resources/js/getUserMedia-polyfill.js") %>'></script>
 <!-- Additional -->
 <script src='<%= CacheBreak("/resources/js/moment/moment.min.js") %>'></script>
 <script src='<%= CacheBreak("/resources/js/moment/fr.js") %>'></script>
@@ -39,8 +39,8 @@
 <script src='<%= CacheBreak("/resources/js/smartguide/smartguide.tinymce.js") %>'></script>
 <script src='<%= CacheBreak("/resources/js/smartguide/smartguide.dataTables.js") %>'></script>
 <script src='<%= CacheBreak("/resources/js/smartguide/smartguide.dataTables.wb.js") %>'></script>
-<script src='<%= CacheBreak("/resources/js/smartguide/smartguide.formatters.js") %>'></script>
 <script src='<%= CacheBreak("/resources/js/smartguide/smartguide.crud.js") %>'></script>
+<script src='<%= CacheBreak("/resources/js/smartguide/smartguide.utils.js") %>'></script>
 <script src='<%= CacheBreak("/resources/js/smartguide/smartguide.keepalive.js") %>'></script>
 <script src='<%= CacheBreak("/resources/js/smartguide/custom.js") %>'></script>
 <script>	
