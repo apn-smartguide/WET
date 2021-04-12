@@ -3,7 +3,8 @@
 <script src='<%= CacheBreak("/resources/js/jquery-3.5.1.js") %>'></script><%-- Parser removes the eSolution version --%>
 <script src='<%= CacheBreak("/resources/js/jquery-migrate-3.3.2.js") %>'></script>
 <!--<![endif]-->
-<link href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" rel="stylesheet">
+<%--<link href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" rel="stylesheet">--%>
+<link href='<%= CacheBreak("/resources/fonts/fontawesome-free-5.15.3-web/css/all.min.css") %>' rel="stylesheet">
 <!-- Bootstrap CSS -->
 <link href='<%= CacheBreak("/resources/css/bootstrap.css") %>' rel="stylesheet">
 <%-- <link href='<%= CacheBreak("/resources/css/bootstrap-theme.css") %>' rel="stylesheet"> --%>
