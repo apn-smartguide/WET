@@ -31,7 +31,7 @@ var WETdataTablesController = {
 		}
 
 		// rebind on wet datatable event
-		$(".wb-tables2", context).off("wb-updated.wb-tables").on("wb-updated.wb-tables", function (event) {
+		$(".wb-tables", context).off("wb-updated.wb-tables").on("wb-updated.wb-tables", function (event) {
 			// handle status of select all checkbox if available
 			var el = $('[name=select_all]', $(this).closest('table')).get(0);
 			if (typeof el != 'undefined') {
