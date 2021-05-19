@@ -36,7 +36,6 @@
 							</h2>
 						</div>
 					</div>
-					<% ExecutePath("/controls/validation.aspx"); %>
 					<% ExecutePath("/layout/main.aspx"); %>
 					<%-- MAIN LOOP OVER PAGE CONTROLS --%>
 					<% ExecutePath("/controls/controls.aspx"); %>
