@@ -11,10 +11,10 @@
 </apn:ifnotcontrolattribute>
 <apn:ifcontrolattribute attr="tooltip" runat="server">
 	<apn:ifnotcontrolvalid runat="server">
-		<span class="error"><span class='field-name' data-toggle='tooltip' data-html='true' title='<%=GetAttribute(control.Current, "tooltip")%>'><%=control.Current.getLabel()%> <%if (!hideSuffix) {%><%=GetMetaDataValue(control.Current, "label-suffix")%><%}%></span></span>
+		<span class="error"><span class='field-name' data-toggle='tooltip' data-placement='auto' data-container='body' data-html='true' title='<%=GetAttribute(control.Current, "tooltip")%>'><%=control.Current.getLabel()%> <%if (!hideSuffix) {%><%=GetMetaDataValue(control.Current, "label-suffix")%><%}%></span></span>
 	</apn:ifnotcontrolvalid>
 	<apn:ifcontrolvalid runat="server">
-		<span class='field-name' data-toggle='tooltip' data-html='true' title='<%=GetAttribute(control.Current, "tooltip")%>'><%=control.Current.getLabel()%> <%if (!hideSuffix) {%><%=GetMetaDataValue(control.Current, "label-suffix")%><%}%></span></span>
+		<span class='field-name' data-toggle='tooltip' data-placement='auto' data-container='body' data-html='true' title='<%=GetAttribute(control.Current, "tooltip")%>'><%=control.Current.getLabel()%> <%if (!hideSuffix) {%><%=GetMetaDataValue(control.Current, "label-suffix")%><%}%></span></span>
 	</apn:ifcontrolvalid>
 </apn:ifcontrolattribute>
 <% ExecutePath("/controls/help.aspx"); %>
