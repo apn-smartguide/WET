@@ -3,23 +3,8 @@
 
 var WETdataTablesController = { 
 	init: function(sgRef) { 
-		Modernizr.load( {
-			load: [
-				basePath + "default_8.5/resources/plugins/dataTables/DataTables-1.10.21/js/jquery.datatables" + wb.getMode() + ".js",
-				basePath + "default_8.5/resources/plugins/dataTables/Responsive-2.2.5/js/dataTables.responsive" + wb.getMode() + ".js"
-			],
-			complete: function() {
-				//$(".wb-tables").trigger("wb-init.wb-tables");
-			}
-		} );
-
 		$( ".wb-tables" ).on("wb-init.wb-tables", function() {
-			//This will be called after the trigger
-			// new $.fn.DataTable.Responsive( $(".wb-tables"), {
-			// 	details: false
-			// });
 			$( ".wb-tables" ).find('thead th').css('width', 'auto');
-			//sgRef.bindEvents([$(this)]);
 		});
 	},
 	
