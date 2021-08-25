@@ -12,7 +12,7 @@ var WETdataTablesController = {
 			
 			if(typeof id !== 'undefined') {
 				id = id.replace("div_","");
-				//console.log("bindEvents:wb-tables (initing) " + id);
+				console.log("bindEvents:wb-tables (initing) " + id);
 				//sgRef.bindEvents([id]);
 			}
 		});
@@ -61,7 +61,7 @@ var WETdataTablesController = {
 			if(typeof id !== 'undefined') {
 				id = id.replace("div_","");
 				//console.log("bindEvents:wb-tables.wb-updated (bindEvent) " + id);
-				//sgRef.bindEvents([id]);
+				sgRef.bindEvents([id]);
 			}
 		});
 
@@ -69,8 +69,8 @@ var WETdataTablesController = {
 			var id = $(this).parents(".repeat").attr("id");
 			if(typeof id !== 'undefined') {
 				id = id.replace("div_","");
-				console.log("bindEvents:wb-tables (rebind) " + id);
-				sgRef.bindEvents([id]);
+				//console.log("bindEvents:wb-tables (rebind) " + id);
+				//sgRef.bindEvents([id]);
 			}
 		});
 
