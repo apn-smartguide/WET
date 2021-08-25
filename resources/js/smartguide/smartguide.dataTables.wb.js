@@ -4,7 +4,7 @@
 var WETdataTablesController = { 
 	init: function(sgRef) { 
 		$( ".wb-tables" ).on("wb-init.wb-tables", function() {
-			$( ".wb-tables" ).find('thead th').css('width', 'auto');
+			//$( ".wb-tables" ).find('thead th').css('width', 'auto');
 		});
 	},
 	
