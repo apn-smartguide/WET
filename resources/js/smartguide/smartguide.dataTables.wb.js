@@ -35,11 +35,10 @@ var WETdataTablesController = {
 					} else {
 						// nothing checked
 						el.checked = false;
-						el.indeterminate = false;					
+						el.indeterminate = false;
 					}
 				}
 			}
-			
 			sgRef.bindEvents([$(this)]);
 		});
 
