@@ -1,20 +1,38 @@
 var WETdataTablesController = { 
 	init: function(sgRef) { 
-		$( ".wb-tables" ).on("wb-init.wb-tables", function() {
-			//$( ".wb-tables" ).find('thead th').css('width', 'auto');
-		});
+		// $( ".wb-tables" ).on("wb-init.wb-tables", function() {
+		// 	console.log("init:wb-tables (initing)");
+		// });
 	},
 	
 	bindEvents : function(sgRef, context) {
 
+		$( ".wb-tables" ).off("wb-init.wb-tables").on("wb-init.wb-tables", function() {
+			var id = $(this).parents(".repeat").attr("id");
+			
+			if(typeof id !== 'undefined') {
+				id = id.replace("div_","");
+				//console.log("bindEvents:wb-tables (initing) " + id);
+				//sgRef.bindEvents([id]);
+			}
+		});
+
 		// WET reinit controls
-		if($(":not(.wb-tables-inited) .wb-tables", context).length > 0) {
-			$( ":not(.wb-tables-inited) .wb-tables", context).trigger("wb-init.wb-tables");
-		}
+		$(":not(.wb-tables-inited) .wb-tables", context).each(function(){
+			$(this).trigger("wb-init.wb-tables");
+			var id = $(this).parents(".repeat").attr("id");
+			
+			if(typeof id !== 'undefined') {
+				id = id.replace("div_","");
+				//console.log("bindEvents:wb-tables.wb-init (trigger) " + id);
+				//sgRef.bindEvents([id]);
+			}
+		});
 
 		// rebind on wet datatable event
 		$(".wb-tables", context).off("wb-updated.wb-tables").on("wb-updated.wb-tables", function (event) {
 			// handle status of select all checkbox if available
+			var id = $(this).parents(".repeat").attr("id");
 			var el = $('[name=select_all]', $(this).closest('table')).get(0);
 			if (typeof el != 'undefined') {
 				// check status of select all checkbox vs the currently checked rows
@@ -39,7 +57,21 @@ var WETdataTablesController = {
 					}
 				}
 			}
-			sgRef.bindEvents([$(this)]);
+			
+			if(typeof id !== 'undefined') {
+				id = id.replace("div_","");
+				//console.log("bindEvents:wb-tables.wb-updated (bindEvent) " + id);
+				//sgRef.bindEvents([id]);
+			}
+		});
+
+		$(".wb-tables", context).each(function(){
+			var id = $(this).parents(".repeat").attr("id");
+			if(typeof id !== 'undefined') {
+				id = id.replace("div_","");
+				console.log("bindEvents:wb-tables (rebind) " + id);
+				sgRef.bindEvents([id]);
+			}
 		});
 
 		$('[name=select_all2]', '.wb-tables thead tr th').first().off('click').on('click', function(){
