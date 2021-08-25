@@ -1,6 +1,3 @@
-
-//TODO: refactor as not dependent of WET version
-
 var WETdataTablesController = { 
 	init: function(sgRef) { 
 		$( ".wb-tables" ).on("wb-init.wb-tables", function() {
