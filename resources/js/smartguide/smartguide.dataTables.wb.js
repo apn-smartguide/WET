@@ -13,20 +13,15 @@ var WETdataTablesController = {
 			if(typeof id !== 'undefined') {
 				id = id.replace("div_","");
 				console.log("bindEvents:wb-tables (initing) " + id);
-				//sgRef.bindEvents([id]);
+				setTimeout(function() {
+					sgRef.bindEvents([],"WETdataTablesController");
+				},0);
 			}
 		});
 
 		// WET reinit controls
 		$(":not(.wb-tables-inited) .wb-tables", context).each(function(){
 			$(this).trigger("wb-init.wb-tables");
-			var id = $(this).parents(".repeat").attr("id");
-			
-			if(typeof id !== 'undefined') {
-				id = id.replace("div_","");
-				//console.log("bindEvents:wb-tables.wb-init (trigger) " + id);
-				//sgRef.bindEvents([id]);
-			}
 		});
 
 		// rebind on wet datatable event
@@ -60,17 +55,7 @@ var WETdataTablesController = {
 			
 			if(typeof id !== 'undefined') {
 				id = id.replace("div_","");
-				//console.log("bindEvents:wb-tables.wb-updated (bindEvent) " + id);
-				sgRef.bindEvents([id]);
-			}
-		});
-
-		$(".wb-tables", context).each(function(){
-			var id = $(this).parents(".repeat").attr("id");
-			if(typeof id !== 'undefined') {
-				id = id.replace("div_","");
-				//console.log("bindEvents:wb-tables (rebind) " + id);
-				//sgRef.bindEvents([id]);
+				sgRef.bindEvents([id],"WETdataTablesController");
 			}
 		});
 
