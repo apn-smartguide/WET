@@ -14,6 +14,7 @@
 <script src='<%= CacheBreak("/resources/js/respond.min.js") %>'></script>
 <![endif]-->
 <!-- Additional -->
+<script src='<%= CacheBreak("/resources/js/css.escape.js") %>'></script>
 <script src='<%= CacheBreak("/resources/js/moment/moment.min.js") %>'></script>
 <script src='<%= CacheBreak("/resources/js/moment/fr.js") %>'></script>
 <script src='<%= CacheBreak("/resources/js/moment/en-ca.js") %>'></script>
