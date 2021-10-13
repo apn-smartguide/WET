@@ -36,7 +36,7 @@
 <script src='<%= CacheBreak("/resources/js/jquery.autocomplete.min.js") %>'></script>
 <script src='<%= CacheBreak("/resources/js/inputmask/jquery.inputmask.js") %>'></script>
 <!-- SmartGuide JS -->
-<script src='<%= CacheBreak("/resources/js/smartguide/smartguide-wet.js") %>'></script>
+<script src='<%= CacheBreak("/resources/js/smartguide/smartguide.js") %>'></script>
 <script src='<%= CacheBreak("/resources/js/smartguide/smartguide.tinymce.js") %>'></script>
 <script src='<%= CacheBreak("/resources/js/smartguide/smartguide.dataTables.js") %>'></script>
 <script src='<%= CacheBreak("/resources/js/smartguide/smartguide.dataTables.wb.js") %>'></script>
@@ -44,6 +44,7 @@
 <script src='<%= CacheBreak("/resources/js/smartguide/smartguide.utils.js") %>'></script>
 <script src='<%= CacheBreak("/resources/js/smartguide/smartguide.keepalive.js") %>'></script>
 <script src='<%= CacheBreak("/resources/js/smartguide/custom.js") %>'></script>
+<script src='<%= CacheBreak("/resources/js/smartguide/smartguide-wet.js") %>'></script>
 <script>	
 	var dataTableTranslations = {
 		'zeroRecords': '<apn:localize runat="server" key="theme.text.datatable.zeroRecords"/>',
