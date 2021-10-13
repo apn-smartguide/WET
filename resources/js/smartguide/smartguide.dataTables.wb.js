@@ -9,53 +9,57 @@ var WETdataTablesController = {
 
 		$( ".wb-tables" ).off("wb-init.wb-tables").on("wb-init.wb-tables", function() {
 			var id = $(this).parents(".repeat").attr("id");
-			
 			if(typeof id !== 'undefined') {
-				id = id.replace("div_","");
+				//id = id.replace("div_","");
 				console.log("bindEvents:wb-tables (initing) " + id);
 				setTimeout(function() {
-					sgRef.bindEvents([],"WETdataTablesController");
+					sgRef.bindEvents([$("#"+id)], "WETdataTablesController");
 				},0);
 			}
 		});
 
 		// WET reinit controls
-		$(":not(.wb-tables-inited) .wb-tables", context).each(function(){
-			$(this).trigger("wb-init.wb-tables");
+		// $(".wb-tables", context).not("wb-tables-inited").each(function(){
+		// 	console.log("bindEvents:wb-tables (re-initing) " + this.id);
+		// 	$(this).trigger("wb-init.wb-tables");
+		// });
+
+		$('input[type=date]', context).not("wb-date-inited").each( function () {
+			console.log("bindEvents:wb-date (re-initing) " + this.id);
+			$(this).trigger("wb-init.wb-date");
 		});
 
 		// rebind on wet datatable event
 		$(".wb-tables", context).off("wb-updated.wb-tables").on("wb-updated.wb-tables", function (event) {
 			// handle status of select all checkbox if available
 			var id = $(this).parents(".repeat").attr("id");
-			var el = $('[name=select_all]', $(this).closest('table')).get(0);
-			if (typeof el != 'undefined') {
-				// check status of select all checkbox vs the currently checked rows
-				var dataTable = $(this).DataTable();
-				var rows = dataTable.rows({ 'page': 'current' }).nodes();
-				var totalRows = rows.length;
-				// how many checked
-				var checkedRows = $('input[type="checkbox"]', rows).filter(':checked').length;
+			if(typeof id !== 'undefined') {
+				var el = $('[name=select_all]', $(this).closest('table')).get(0);
+				if (typeof el != 'undefined') {
+					// check status of select all checkbox vs the currently checked rows
+					var dataTable = $(this).DataTable();
+					var rows = dataTable.rows({ 'page': 'current' }).nodes();
+					var totalRows = rows.length;
+					// how many checked
+					var checkedRows = $('input[type="checkbox"]', rows).filter(':checked').length;
 
-				if (checkedRows == totalRows) {
-					el.checked = true;
-					el.indeterminate = false;
-				} else {
-					if (checkedRows > 0) {
-						// at least one check, set indeterminate 
+					if (checkedRows == totalRows) {
 						el.checked = true;
-						el.indeterminate = true;
-					} else {
-						// nothing checked
-						el.checked = false;
 						el.indeterminate = false;
+					} else {
+						if (checkedRows > 0) {
+							// at least one check, set indeterminate 
+							el.checked = true;
+							el.indeterminate = true;
+						} else {
+							// nothing checked
+							el.checked = false;
+							el.indeterminate = false;
+						}
 					}
 				}
-			}
-			
-			if(typeof id !== 'undefined') {
-				id = id.replace("div_","");
-				sgRef.bindEvents([id],"WETdataTablesController");
+				//id = id.replace("div_","");
+				sgRef.bindEvents([$("#"+id)],"WETdataTablesController");
 			}
 		});
 
