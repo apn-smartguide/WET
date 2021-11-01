@@ -1,31 +1,20 @@
 var WETdataTablesController = { 
-	init: function(sgRef) { 
-		// $( ".wb-tables" ).on("wb-init.wb-tables", function() {
-		// 	console.log("init:wb-tables (initing)");
-		// });
-	},
+	init: function(sgRef) { },
 	
 	bindEvents : function(sgRef, context) {
 
 		$( ".wb-tables" ).off("wb-init.wb-tables").on("wb-init.wb-tables", function() {
 			var id = $(this).parents(".repeat").attr("id");
 			if(typeof id !== 'undefined') {
-				//id = id.replace("div_","");
-				console.log("bindEvents:wb-tables (initing) " + id);
+				//console.log("bindEvents:wb-tables (initing) " + id);
 				setTimeout(function() {
 					sgRef.bindEvents([$("#"+id)], "WETdataTablesController");
 				},0);
 			}
 		});
 
-		// WET reinit controls
-		// $(".wb-tables", context).not("wb-tables-inited").each(function(){
-		// 	console.log("bindEvents:wb-tables (re-initing) " + this.id);
-		// 	$(this).trigger("wb-init.wb-tables");
-		// });
-
 		$('input[type=date]', context).not("wb-date-inited").each( function () {
-			console.log("bindEvents:wb-date (re-initing) " + this.id);
+			//console.log("bindEvents:wb-date (re-initing) " + this.id);
 			$(this).trigger("wb-init.wb-date");
 		});
 
@@ -58,9 +47,9 @@ var WETdataTablesController = {
 						}
 					}
 				}
-				//id = id.replace("div_","");
-				sgRef.bindEvents([$("#"+id)],"WETdataTablesController");
 			}
+			
+			sgRef.bindEvents([id],"WETdataTablesController");
 		});
 
 		$('[name=select_all2]', '.wb-tables thead tr th').first().off('click').on('click', function(){
