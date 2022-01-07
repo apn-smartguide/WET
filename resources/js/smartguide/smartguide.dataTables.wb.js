@@ -1,9 +1,5 @@
 var WETdataTablesController = { 
-	init: function(sgRef) {
-		// $( ".wb-tables" ).on("init.dt", function (event) {
-		// 	console.log("init.d" + event);
-		// });
-	 },
+	init: function(sgRef) { },
 	
 	bindEvents : function(sgRef, context, rebindInitiator) {
 
@@ -12,6 +8,7 @@ var WETdataTablesController = {
 			if(typeof id !== 'undefined' && rebindInitiator != "WETdataTablesController") {
 				//console.log("bindEvents:wb-tables (initing) " + id);
 				setTimeout(function() {
+					//console.log("bindEvents:wb-tables (completed) " + id);
 					sgRef.bindEvents([$("#"+id)], "WETdataTablesController");
 				},0);
 			}
