@@ -1,11 +1,15 @@
 var WETdataTablesController = { 
-	init: function(sgRef) { },
+	init: function(sgRef) {
+		// $( ".wb-tables" ).on("init.dt", function (event) {
+		// 	console.log("init.d" + event);
+		// });
+	 },
 	
-	bindEvents : function(sgRef, context) {
+	bindEvents : function(sgRef, context, rebindInitiator) {
 
-		$( ".wb-tables" ).off("wb-init.wb-tables").on("wb-init.wb-tables", function() {
+		$( ".wb-tables" ).on("wb-init.wb-tables", function() {
 			var id = $(this).parents(".repeat").attr("id");
-			if(typeof id !== 'undefined') {
+			if(typeof id !== 'undefined' && rebindInitiator != "WETdataTablesController") {
 				//console.log("bindEvents:wb-tables (initing) " + id);
 				setTimeout(function() {
 					sgRef.bindEvents([$("#"+id)], "WETdataTablesController");
@@ -22,6 +26,7 @@ var WETdataTablesController = {
 		$(".wb-tables", context).off("wb-updated.wb-tables").on("wb-updated.wb-tables", function (event) {
 			// handle status of select all checkbox if available
 			var id = $(this).parents(".repeat").attr("id");
+			//console.log("bindEvents:wb-tables (updating) " + id);
 			if(typeof id !== 'undefined') {
 				var el = $('[name=select_all]', $(this).closest('table')).get(0);
 				if (typeof el != 'undefined') {
@@ -48,8 +53,9 @@ var WETdataTablesController = {
 					}
 				}
 			}
-			
-			sgRef.bindEvents([id],"WETdataTablesController");
+			if(rebindInitiator != "WETdataTablesController") {
+				sgRef.bindEvents([id],"WETdataTablesController");
+			}
 		});
 
 		$('[name=select_all2]', '.wb-tables thead tr th').first().off('click').on('click', function(){
