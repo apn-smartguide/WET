@@ -14,11 +14,7 @@
 		<span class="error"><span class='field-name <%if((bool)Context.Items["hide-label"]) { %>sr-only<% } %>'><%=Context.Items["label"]%></span></span>
 	</apn:ifnotcontrolvalid>
 	<apn:ifcontrolvalid runat="server">
-		<span class='field-name <%if((bool)Context.Items["hide-label"]) { %>sr-only<% } %>'><%=Context.Items["label"]%>
-			<% if (TTSEnabled) { %>
-				<span style='display:none;' class='tts-icon <apn:localize runat="server" key="theme.icon.play"/>'></span>
-			<% } %>
-		</span>
+		<span class='field-name <%if((bool)Context.Items["hide-label"]) { %>sr-only<% } %>'><%=Context.Items["label"]%></span>
 	</apn:ifcontrolvalid>
 </apn:ifnotcontrolattribute>
 <apn:ifcontrolattribute attr="tooltip" runat="server">
@@ -27,10 +23,6 @@
 	</apn:ifnotcontrolvalid>
 	<apn:ifcontrolvalid runat="server">
 		<span class='field-name <%if((bool)Context.Items["hide-label"]) { %>sr-only<% } %>' data-toggle='tooltip' data-placement='auto' data-container='body' data-html='true' title='<%=GetTooltip(control.Current)%>'><%=Context.Items["label"]%></span>
-		<% if (TTSEnabled) { %>
-			<span style='display:none;' class='tts-icon <apn:localize runat="server" key="theme.icon.play"/>'></span>
-		<% } %>
-		</span>
 	</apn:ifcontrolvalid>
 </apn:ifcontrolattribute>
 <% } %>
