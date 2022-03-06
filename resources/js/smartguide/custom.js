@@ -29,7 +29,7 @@ var customJS = {
 		crudController.init(sgRef);
 		keepAliveController.init(sgRef, 15, 20, 5);
 	}
-	, bindEvents: function (sgRef, context) {
+	, bindEvents: function (sgRef, context, rebindInitiator) {
 		// can reference objects and methods in smartguide.js
 		// e.g.: $('#myselector', context).unbind('click',sgRef.bindThis).bind('click', sgRef.bindThis);
 		if (!context) {
@@ -39,7 +39,9 @@ var customJS = {
 		for(i=0; i<context.length; i++) {
 			utilsController.bindEvents(sgRef, context[i]);
 			tinymceController.bindEvents(sgRef, "TEXTAREA.tinymce", context[i]);
-			WETdataTablesController.bindEvents(sgRef, context[i]);
+			if(rebindInitiator != "WETdataTablesController") {
+				WETdataTablesController.bindEvents(sgRef, context[i]);
+			}
 			dataTablesController.bindEvents(sgRef, context[i]);
 			crudController.bindEvents(sgRef, context[i]);
 		}

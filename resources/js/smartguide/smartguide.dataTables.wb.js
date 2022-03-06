@@ -2,37 +2,29 @@
 //TODO: refactor as not dependent of WET version
 
 var WETdataTablesController = { 
-	init: function(sgRef) { 
-		Modernizr.load( {
-			load: [
-				basePath + "default_8.5/resources/plugins/dataTables/DataTables-1.10.21/js/jquery.datatables" + wb.getMode() + ".js",
-				basePath + "default_8.5/resources/plugins/dataTables/Responsive-2.2.5/js/dataTables.responsive" + wb.getMode() + ".js"
-			],
-			complete: function() {
-				//$(".wb-tables").trigger("wb-init.wb-tables");
-			}
-		} );
-
-		$( ".wb-tables" ).on("wb-init.wb-tables", function() {
-			//This will be called after the trigger
-			// new $.fn.DataTable.Responsive( $(".wb-tables"), {
-			// 	details: false
-			// });
-			$( ".wb-tables" ).find('thead th').css('width', 'auto');
-			//sgRef.bindEvents([$(this)]);
-		});
-	},
+	init: function(sgRef) {	},
 	
 	bindEvents : function(sgRef, context) {
 
-		// WET reinit controls
-		if($(":not(.wb-tables-inited) .wb-tables", context).length > 0) {
-			$( ":not(.wb-tables-inited) .wb-tables", context).trigger("wb-init.wb-tables");
-		}
+		$( ".wb-tables" ).off("wb-init.wb-tables").on("wb-init.wb-tables", function() {
+			var id = $(this).parents(".repeat").attr("id");
+			if(typeof id !== 'undefined') {
+				//console.log("bindEvents:wb-tables (initing) " + id);
+				setTimeout(function() {
+					sgRef.bindEvents([$("#"+id)], "WETdataTablesController");
+				},0);
+			}
+		});
+
+		$('input[type=date]', context).not("wb-date-inited").each( function () {
+			//console.log("bindEvents:wb-date (re-initing) " + this.id);
+			$(this).trigger("wb-init.wb-date");
+		});
 
 		// rebind on wet datatable event
 		$(".wb-tables", context).off("wb-updated.wb-tables").on("wb-updated.wb-tables", function (event) {
 			// handle status of select all checkbox if available
+			var id = $(this).parents(".repeat").attr("id");
 			var el = $('[name=select_all]', $(this).closest('table')).get(0);
 			if (typeof el != 'undefined') {
 				// check status of select all checkbox vs the currently checked rows
@@ -53,12 +45,12 @@ var WETdataTablesController = {
 					} else {
 						// nothing checked
 						el.checked = false;
-						el.indeterminate = false;					
+						el.indeterminate = false;
 					}
 				}
 			}
 			
-			sgRef.bindEvents([$(this)]);
+			sgRef.bindEvents([id], "WETdataTablesController");
 		});
 
 		$('[name=select_all2]', '.wb-tables thead tr th').first().off('click').on('click', function(){
