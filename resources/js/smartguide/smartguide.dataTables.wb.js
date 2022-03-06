@@ -1,6 +1,3 @@
-
-//TODO: refactor as not dependent of WET version
-
 var WETdataTablesController = { 
 	init: function(sgRef) {	},
 	
@@ -34,14 +31,9 @@ var WETdataTablesController = {
 				// how many checked
 				var checkedRows = $('input[type="checkbox"]', rows).filter(':checked').length;
 
-				if (checkedRows == totalRows) {
-					el.checked = true;
-					el.indeterminate = false;
-				} else {
-					if (checkedRows > 0) {
-						// at least one check, set indeterminate 
+					if (checkedRows == totalRows) {
 						el.checked = true;
-						el.indeterminate = true;
+						el.indeterminate = false;
 					} else {
 						// nothing checked
 						el.checked = false;

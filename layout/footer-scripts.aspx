@@ -1,41 +1,41 @@
 <%@ Page Language="C#" autoeventwireup="true" CodeFile="../../default_8.5/SGWebCore.cs" Inherits="SGWebCore" Trace="false"%>
 <!-- WET-BOEW -->
 <script src='<%= CacheBreak("/wet-boew/js/wet-boew.min.js") %>'></script>
+
+<!-- Placed at the end of the document so the pages load faster -->
 <!-- JQuery -->
-<script src='<%= CacheBreak("/resources/js/ui/jquery-ui.js") %>'></script>
-<%-- the following line is to remove the conflict between jquery-ui tooltip and bootstrap tooltip. bootstap will override and be default --%>
-<script>$.widget.bridge('uitooltip', $.ui.tooltip);</script>
+<script src='<%= CacheBreak("/resources/plugins/jquery/jquery-ui-1.13.0.custom/jquery-ui.min.js") %>'></script>
+<script src='<%= CacheBreak("/resources/plugins/jquery/jquery.form.min.js") %>'></script>
+<script src='<%= CacheBreak("/resources/plugins/jquery/jquery.bootpag.min.js") %>'></script>
+<script src='<%= CacheBreak("/resources/plugins/jquery/jquery.autocomplete.min.js") %>'></script>
+<script src='<%= CacheBreak("/resources/plugins/jquery/inputmask/jquery.inputmask.js") %>'></script>
+
 <!-- Boostrap -->
-<script src='<%= CacheBreak("/resources/js/bootstrap.js") %>'></script>
-<script src='<%= CacheBreak("/resources/js/getUserMedia-polyfill.js") %>'></script>
+<script src='<%= CacheBreak("/resources/plugins/bootstrap/bootstrap.js") %>'></script>
+<!-- <script src='<%= CacheBreak("/resources/plugins/bootstrap/bootstrap.modal.js") %>'></script>-->
+<script src='<%= CacheBreak("/resources/plugins/bootstrap/bootstrap-session-timeout.js") %>'></script> 
+
+<!-- Custom -->
+<script src='<%= CacheBreak("/resources/js/polyfill/getUserMedia-polyfill.js") %>'></script>
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 9]>
 <script src='<%= CacheBreak("/resources/js/html5shiv.min.js") %>'></script>
 <script src='<%= CacheBreak("/resources/js/respond.min.js") %>'></script>
 <![endif]-->
-<!-- Additional -->
+<script src='<%= CacheBreak("/resources/js/polyfill/css.escape.js") %>'></script>
 <script src='<%= CacheBreak("/resources/js/moment/moment.min.js") %>'></script>
 <script src='<%= CacheBreak("/resources/js/moment/fr.js") %>'></script>
 <script src='<%= CacheBreak("/resources/js/moment/en-ca.js") %>'></script>
 <script src='<%= CacheBreak("/resources/plugins/tinymce/tinymce.min.js") %>'></script>
 <script src='<%= CacheBreak("/resources/js/js-cookie.js") %>'></script>
 <script src='<%= CacheBreak("/resources/js/jSignature.min.js") %>'></script>
-<script src='<%= CacheBreak("/resources/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js") %>'></script>
-<script src='<%= CacheBreak("/resources/plugins/bootstrap-datepicker/locales/bootstrap-datepicker.en-CA.min.js") %>'></script>
-<script src='<%= CacheBreak("/resources/plugins/bootstrap-datepicker/locales/bootstrap-datepicker.fr.min.js") %>'></script>
-<script src='<%= CacheBreak("/resources/js/bootstrap-datetimepicker.min.js") %>'></script>
-<script src='<%= CacheBreak("/resources/js/holder.min.js") %>'></script>
-<script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
-<script src='<%= CacheBreak("/resources/js/bootstrap-session-timeout.js") %>'></script>
+<!-- <script src='<%= CacheBreak("/resources/js/holder.min.js") %>'></script>
+<script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script> -->
 <script src='<%= CacheBreak("/resources/plugins/dataTables/DataTables-1.10.21/js/jquery.datatables.js") %>'></script>
 <script src='<%= CacheBreak("/resources/plugins/dataTables/Responsive-2.2.5/js/dataTables.responsive.js") %>'></script>
-<!-- Boostrap -->
-<script src='<%= CacheBreak("/resources/js/jquery.form.min.js") %>'></script>
-<script src='<%= CacheBreak("/resources/js/jquery.bootpag.min.js") %>'></script>
-<script src='<%= CacheBreak("/resources/js/jquery.autocomplete.min.js") %>'></script>
-<script src='<%= CacheBreak("/resources/js/inputmask/jquery.inputmask.js") %>'></script>
+
 <!-- SmartGuide JS -->
-<script src='<%= CacheBreak("/resources/js/smartguide/smartguide-wet.js") %>'></script>
+<script src='<%= CacheBreak("/resources/js/smartguide/smartguide.js") %>'></script>
 <script src='<%= CacheBreak("/resources/js/smartguide/smartguide.tinymce.js") %>'></script>
 <script src='<%= CacheBreak("/resources/js/smartguide/smartguide.dataTables.js") %>'></script>
 <script src='<%= CacheBreak("/resources/js/smartguide/smartguide.dataTables.wb.js") %>'></script>
@@ -43,6 +43,7 @@
 <script src='<%= CacheBreak("/resources/js/smartguide/smartguide.utils.js") %>'></script>
 <script src='<%= CacheBreak("/resources/js/smartguide/smartguide.keepalive.js") %>'></script>
 <script src='<%= CacheBreak("/resources/js/smartguide/custom.js") %>'></script>
+<script src='<%= CacheBreak("/resources/js/smartguide/smartguide-wet.js") %>'></script>
 <script>	
 	var dataTableTranslations = {
 		'zeroRecords': '<apn:localize runat="server" key="theme.text.datatable.zeroRecords"/>',
