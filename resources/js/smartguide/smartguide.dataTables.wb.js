@@ -1,5 +1,5 @@
-var WETdataTablesController = { 
-	init: function(sgRef) {	},
+var WETdataTablesController = {
+	init: function(sgRef) {},
 	
 	bindEvents : function(sgRef, context) {
 
@@ -31,14 +31,13 @@ var WETdataTablesController = {
 				// how many checked
 				var checkedRows = $('input[type="checkbox"]', rows).filter(':checked').length;
 
-					if (checkedRows == totalRows) {
-						el.checked = true;
-						el.indeterminate = false;
-					} else {
-						// nothing checked
-						el.checked = false;
-						el.indeterminate = false;
-					}
+				if (checkedRows == totalRows) {
+					el.checked = true;
+					el.indeterminate = false;
+				} else {
+					// nothing checked
+					el.checked = false;
+					el.indeterminate = false;
 				}
 			}
 			
@@ -56,7 +55,7 @@ var WETdataTablesController = {
 				// ajax call to selection aspx file
 				var originalAction = $("form").attr('action');
 				$("form").attr('action', basePath.toString() + "/controls/repeats/datatables-selection.aspx");
-				$("form").ajaxSubmit({data:{ appID: smartletName, tableId: tableId }}); 
+				$("form").ajaxSubmit({data:{ appID: smartletName, tableId: tableId }});
 				$("form").attr('action', originalAction);
 			}
 		});
@@ -94,13 +93,13 @@ var WETdataTablesController = {
 				// ajax call to selection aspx file
 				var originalAction = $("form").attr('action');
 				$("form").attr('action', basePath.toString() + "/controls/repeats/datatables-selection.aspx");
-				$("form").ajaxSubmit({data:{ appID: smartletName, tableId: tableId }}); 
+				$("form").ajaxSubmit({data:{ appID: smartletName, tableId: tableId }});
 				$("form").attr('action', originalAction);
 			}
 		});
 		
 		// support for selection radios for server side repeats
-		$('[type=radio2][name^=d_s]').off('click').on('click', function() { 
+		$('[type=radio2][name^=d_s]').off('click').on('click', function() {
 			var dataTable = $(this).closest('table').DataTable();
 
 			// unselect all, then just re-selects our instance (e.g. d_s1590340615680[5])
@@ -119,10 +118,9 @@ var WETdataTablesController = {
 			if (dataTable.page.info().serverSide) {
 				var originalAction = $("form").attr('action');
 				$("form").attr('action', basePath.toString() + "/controls/repeats/datatables-selection.aspx");
-				$("form").ajaxSubmit({data:{ appID: smartletName, tableId: $(this).attr('id') }}); 
+				$("form").ajaxSubmit({data:{ appID: smartletName, tableId: $(this).attr('id') }});
 				$("form").attr('action', originalAction);
 			}
 		});
 	}
 }
-		
