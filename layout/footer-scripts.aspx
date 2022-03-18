@@ -10,7 +10,7 @@
 <script src='<%= CacheBreak("/resources/plugins/jquery/jquery.autocomplete.min.js") %>'></script>
 <script src='<%= CacheBreak("/resources/plugins/jquery/inputmask/jquery.inputmask.js") %>'></script>
 
-<!-- Boostrap -->
+<!-- Bootstrap -->
 <script src='<%= CacheBreak("/resources/plugins/bootstrap/bootstrap.js") %>'></script>
 <!-- <script src='<%= CacheBreak("/resources/plugins/bootstrap/bootstrap.modal.js") %>'></script>-->
 <script src='<%= CacheBreak("/resources/plugins/bootstrap/bootstrap-session-timeout.js") %>'></script> 
